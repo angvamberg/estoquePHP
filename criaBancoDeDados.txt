@@ -1,0 +1,21 @@
+﻿create database estoque;
+use estoque;
+
+create table categoria(
+	idcategoria int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	nomecategoria varchar(40)	
+);
+
+create table fornecedor(
+	idfornecedor int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	nomefornecedor varchar(40)
+);
+
+create table produto(
+	idproduto int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	nomeproduto varchar (40),
+	idcategoria int(11),
+	idfornecedor int(11),
+	FOREIGN KEY (idcategoria) REFERENCES categoria(idcategoria),
+	FOREIGN KEY (idfornecedor) REFERENCES fornecedor(idfornecedor)
+);
